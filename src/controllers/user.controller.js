@@ -7,8 +7,8 @@ import { unlinkTempFiles } from "../utils/unlinkTempFiles.js";
 
 const userController = asyncHandler(async function (req, res) {
   const { fullName, userName, email, password } = req.body;
-  const avatarLocalPath = req.files?.avatar[0]?.path;
-  const coverImageLocalPath = req.files?.coverImage[0]?.path;
+  const avatarLocalPath = req.files?.avatar?.[0]?.path;
+  const coverImageLocalPath = req.files?.coverImage?.[0]?.path;
 
   if (!avatarLocalPath) {
     unlinkTempFiles([coverImageLocalPath]);
